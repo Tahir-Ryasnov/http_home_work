@@ -20,7 +20,7 @@ class YaUploader:
         self.token = token
 
     def get_headers(self):
-        return {"Autorization": 'OAuth {}'.format(self.token)}
+        return {"Authorization": 'OAuth {}'.format(self.token)}
 
     def _get_upload_link(self, disk_file_path):
         upload_url = 'http://cloud-api.yandex.net/v1/disk/resources/upload'
@@ -40,6 +40,6 @@ class YaUploader:
 
 if __name__ == '__main__':
     TOKEN = ''
-    d_file_path = 'https://disk.yandex.ru/client/disk/important_file.txt'
+    d_file_path = 'important_file.txt'
     uploader = YaUploader(token=TOKEN)
     uploader.upload('important_file.txt')
