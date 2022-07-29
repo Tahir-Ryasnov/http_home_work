@@ -23,7 +23,7 @@ class YaUploader:
         return {"Authorization": 'OAuth {}'.format(self.token)}
 
     def _get_upload_link(self, disk_file_path):
-        upload_url = 'http://cloud-api.yandex.net/v1/disk/resources/upload'
+        upload_url = 'https://cloud-api.yandex.net/v1/disk/resources/upload'
         header = self.get_headers()
         params = {'path': disk_file_path, 'overwrite': 'true'}
         response = requests.get(upload_url, headers=header, params=params)
@@ -39,9 +39,7 @@ class YaUploader:
 
 
 if __name__ == '__main__':
-    TOKEN = ''
+    TOKEN = 'AQAAAABGItorAADLW6c0v7u9tEidsArARMEGUW4'
     d_file_path = 'important_file.txt'
     uploader = YaUploader(token=TOKEN)
     uploader.upload('important_file.txt')
-#В чате задавал вопрос там ответили проверили код, нашли ошибку. Ошибку исправил но у меня выдаёт всю тот же Error. 
-#Человек, который мне помогал, говорит что у него этот код работает как с его токеном так и с моим. И я увидел что на Яндекс Диске появился файл. Но когда делаю сам выдаёт Error...
